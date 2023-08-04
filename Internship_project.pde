@@ -1,5 +1,6 @@
 
 Bunny[] bunnyList = new Bunny[10];
+ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
   frameRate(4);
@@ -11,11 +12,12 @@ void setup() {
 void draw() {
   
   background(0,256,120);
-  for(int i = 0; i < bunnyList.length; i++){
   
-    bunnyList[i].randomWalk();
-    bunnyList[i].show();
+  for (Bunny bunny : bunnyList){
     
+    bunny.randomWalk();
+    bunny.show();
+  
   }
   
   
@@ -28,4 +30,10 @@ void fillBunnyList(Bunny[] bunnyList){
     bunnyList[i] = new Bunny();
     
   }
+}
+
+void generateGrass(ArrayList<Grass> grassList){
+
+  
+
 }

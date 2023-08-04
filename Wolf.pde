@@ -1,0 +1,6 @@
+
+class Wolf extends Animal{
+
+  
+
+}
