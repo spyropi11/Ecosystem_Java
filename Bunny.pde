@@ -4,6 +4,7 @@ class Bunny {
 
   int xCoord;
   int yCoord;
+  
   Random rng = new Random();
   
   Bunny(){
@@ -16,17 +17,14 @@ class Bunny {
   void randomWalk(){
     
     //Radius of movement area is 5
-    int direction = rng.nextInt(359);
-    setXCoord((int)random(0,1440));
-    setYCoord((int)random(0,800));
-    println(direction);
+    int degreesOfRotation = rng.nextInt(359);
     
+    double degreesOfRotationInRadians = Math.toRadians(degreesOfRotation);
     
+    setXCoord(getXCoord() + (int)(Math.cos(degreesOfRotationInRadians)*30));
+    setYCoord(getYCoord() + (int)(Math.sin(degreesOfRotationInRadians)*30));
     
-    
-    
-    
-  
+        
   }
   
   void show(){

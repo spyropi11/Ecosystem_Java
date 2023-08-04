@@ -2,6 +2,7 @@
 Bunny[] bunnyList = new Bunny[10];
 
 void setup() {
+  frameRate(4);
   size(1440, 800);
   fillBunnyList(bunnyList);
   
