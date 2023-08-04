@@ -5,9 +5,10 @@ Bunny[] bunnyList = new Bunny[10];
 ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
-  frameRate(4);
+  //frameRate(4);
   size(1440, 800);
   fillBunnyList(bunnyList);
+  grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
   
 }
 
@@ -43,11 +44,37 @@ void fillBunnyList(Bunny[] bunnyList){
 
 void generateGrass(){
 
-  int xCoordOfGrass = rng.nextInt(1, 1439);
-  int yCoordOfGrass = rng.nextInt(1, 799);
+  //There is an exponential growth issue here!
+  boolean grassCanSpawn = false;
   
   
   
-  grassList.add(new Grass(xCoordOfGrass, yCoordOfGrass));
+  int randomSpawnChance = rng.nextInt(1,10);
+  println(randomSpawnChance);
+  
+  println(grassList.size());
+  
+  //This will make it so that each frame there is a 50% chance of grass spawning
+  if(randomSpawnChance <= 5){
+    
+    
+    while (grassCanSpawn == false){
+      
+      int xCoordOfGrass = rng.nextInt(1, 1439);
+      int yCoordOfGrass = rng.nextInt(1, 799);
+      for(int i = 0; i < grassList.size(); i++){
+        
+          
+          if(xCoordOfGrass != grassList.get(i).getXCoord() && yCoordOfGrass != grassList.get(i).getYCoord()){
+            grassList.add(new Grass(xCoordOfGrass, yCoordOfGrass));
+            grassCanSpawn = true;
+            
+          }
+        }
+     }
+  }
+  
+  
+  
 
 }
