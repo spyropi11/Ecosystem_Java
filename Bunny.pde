@@ -16,15 +16,27 @@ class Bunny {
   
   void randomWalk(){
     
-    //Radius of movement area is 5
-    int degreesOfRotation = rng.nextInt(359);
+    boolean canMove = false;
     
-    double degreesOfRotationInRadians = Math.toRadians(degreesOfRotation);
+    while (canMove == false){
+      //Radius of movement area is 30
+      int degreesOfRotation = rng.nextInt(359);
+      
+      double degreesOfRotationInRadians = Math.toRadians(degreesOfRotation);
+      
+      int newXCoord = getXCoord() + (int)(Math.cos(degreesOfRotationInRadians)*30);
+      int newYCoord = getYCoord() + (int)(Math.sin(degreesOfRotationInRadians)*30);
+      
+      if(newXCoord <= 1440 && newXCoord >= 0 && newYCoord <= 800 && newYCoord >= 0){
+      
+        setXCoord(newXCoord);
+        setYCoord(newYCoord);
+        canMove = true;
+      }
+      
     
-    setXCoord(getXCoord() + (int)(Math.cos(degreesOfRotationInRadians)*30));
-    setYCoord(getYCoord() + (int)(Math.sin(degreesOfRotationInRadians)*30));
-    
-        
+      
+    }    
   }
   
   void show(){
