@@ -15,7 +15,7 @@ class Bunny {
   
   void randomWalk(){
     
-    //Radius of movement area is --> 5
+    //Radius of movement area is 5
     int direction = rng.nextInt(359);
     setXCoord((int)random(0,1440));
     setYCoord((int)random(0,800));
