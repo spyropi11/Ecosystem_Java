@@ -8,8 +8,8 @@ class Animal {
   
   Animal(){
     
-    setXCoord((int)random(0,1440));
-    setYCoord((int)random(0,800));
+    setXCoord((int)random(1,1439));
+    setYCoord((int)random(1,799));
   
   }
   
