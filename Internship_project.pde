@@ -47,10 +47,7 @@ void generateGrass(){
   //There is an exponential growth issue here!
   boolean grassCanSpawn = false;
   
-  
-  
   int randomSpawnChance = rng.nextInt(1,10);
-  println(randomSpawnChance);
   
   println(grassList.size());
   
@@ -60,18 +57,27 @@ void generateGrass(){
     
     while (grassCanSpawn == false){
       
+      //Until the if statement below proves that grass cannot spawn, this is set to true
+      grassCanSpawn = true;
       int xCoordOfGrass = rng.nextInt(1, 1439);
       int yCoordOfGrass = rng.nextInt(1, 799);
       for(int i = 0; i < grassList.size(); i++){
         
-          
-          if(xCoordOfGrass != grassList.get(i).getXCoord() && yCoordOfGrass != grassList.get(i).getYCoord()){
-            grassList.add(new Grass(xCoordOfGrass, yCoordOfGrass));
-            grassCanSpawn = true;
+          //this adds many times, I only want it to add ONCE
+          if(xCoordOfGrass == grassList.get(i).getXCoord() && yCoordOfGrass == grassList.get(i).getYCoord()){
+            
+            grassCanSpawn = false;
             
           }
-        }
-     }
+      }
+        
+      if (grassCanSpawn == true){
+      
+        grassList.add(new Grass(xCoordOfGrass, yCoordOfGrass));
+      
+      }
+      
+    }
   }
   
   
