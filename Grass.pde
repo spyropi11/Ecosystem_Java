@@ -14,7 +14,7 @@ class Grass{
   void show(){
       
     fill(43, 92, 39);
-    noStroke();
+    //noStroke();
     ellipse(getXCoord(),getYCoord(),15,15);
     
   }
