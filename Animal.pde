@@ -4,6 +4,8 @@ class Animal {
   int xCoord;
   int yCoord;
   
+  int healthPoints = 0;
+  
   Random rng = new Random();
   
   Animal(){

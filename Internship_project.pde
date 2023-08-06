@@ -5,7 +5,7 @@ Bunny[] bunnyList = new Bunny[10];
 ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
-  //frameRate(4);
+  frameRate(4);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
@@ -26,6 +26,7 @@ void draw() {
   for (Bunny bunny : bunnyList){
     
     bunny.randomWalk();
+    bunny.checkForGrass(grassList);
     bunny.show();
   
   }
@@ -52,7 +53,7 @@ void generateGrass(){
   println(grassList.size());
   
   //This will make it so that each frame there is a 50% chance of grass spawning
-  if(randomSpawnChance <= 5){
+  if(randomSpawnChance <= 1){
     
     
     while (grassCanSpawn == false){
@@ -63,7 +64,7 @@ void generateGrass(){
       int yCoordOfGrass = rng.nextInt(1, 799);
       for(int i = 0; i < grassList.size(); i++){
         
-          //this adds many times, I only want it to add ONCE
+          
           if(xCoordOfGrass == grassList.get(i).getXCoord() && yCoordOfGrass == grassList.get(i).getYCoord()){
             
             grassCanSpawn = false;
