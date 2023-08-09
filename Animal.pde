@@ -4,7 +4,7 @@ class Animal {
   int xCoord;
   int yCoord;
   
-  int healthPoints = 0;
+  int healthPoints = 10;
   
   Random rng = new Random();
   
@@ -38,6 +38,23 @@ class Animal {
     
       
     }    
+  }
+  
+  void updateHealthLeft(){
+    
+    this.healthPoints = this.healthPoints - 1;
+  
+  }
+  
+  void checkIfDead(ArrayList<Bunny> bunnyList, int index){
+  
+    if (bunnyList.get(index).healthPoints <= 0){
+    
+      bunnyList.remove(index);
+
+      
+    }
+  
   }
   
   

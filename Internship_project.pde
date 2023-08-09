@@ -1,7 +1,10 @@
 
 Random rng = new Random();
 
-Bunny[] bunnyList = new Bunny[10];
+int initialNumberOfBunnies = 10;
+int initialNumberOfWolves = 10;
+
+ArrayList<Bunny> bunnyList = new ArrayList<>();
 ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
@@ -24,24 +27,27 @@ void draw() {
     
   }
   
-  for (Bunny bunny : bunnyList){
+  for (int i = 0; i < bunnyList.size(); i++){
     
-    bunny.randomWalk();
-    bunny.checkForGrass(grassList);
-    bunny.show();
+    bunnyList.get(i).randomWalk();
+    bunnyList.get(i).checkForGrass(grassList);
+    bunnyList.get(i).show();
   
   }
   
   
 }
 
-void fillBunnyList(Bunny[] bunnyList){
+void fillBunnyList(ArrayList<Bunny> bunnyList){
 
-  for(int i = 0; i < bunnyList.length; i++){
+  for(int i = 0; i < initialNumberOfBunnies; i++){
   
-    bunnyList[i] = new Bunny();
+    bunnyList.add(new Bunny());
+    
     
   }
+  
+  println(bunnyList.size());
 }
 
 void generateGrass(){
