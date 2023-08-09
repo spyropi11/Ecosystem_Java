@@ -17,6 +17,8 @@ void setup() {
 
 void draw() {
   
+  int currentFrameBunnyListSize = bunnyList.size();
+  
   generateGrass();
   
   background(0,256,120);
@@ -27,8 +29,12 @@ void draw() {
     
   }
   
+  //Solution to problem: the for loop uses the bunnyList's size, but since it is constantly changing as bunnies
+  //die, the for loop's condition "i < bunnyList.size()" is changed every time the for loop re loops. A solution to this
+  //Problem is to use a pre set size for the list at the beginning of the frame that remains constant throughout the loop
+  //
   
-  for (int i = 0; i < bunnyList.size(); i++){
+  for (int i = 0; i < currentFrameBunnyListSize; i++){
     
     bunnyList.get(i).randomWalk();
     bunnyList.get(i).checkForGrass(grassList);
