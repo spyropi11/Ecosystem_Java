@@ -8,7 +8,7 @@ ArrayList<Bunny> bunnyList = new ArrayList<>();
 ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
-  frameRate(4);
+  frameRate(1);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
@@ -27,13 +27,18 @@ void draw() {
     
   }
   
+  
   for (int i = 0; i < bunnyList.size(); i++){
     
     bunnyList.get(i).randomWalk();
     bunnyList.get(i).checkForGrass(grassList);
     bunnyList.get(i).show();
+    bunnyList.get(i).updateHealthLeft();
+    bunnyList.get(i).checkIfDead(bunnyList,i);
   
   }
+  
+  println("list size: " + bunnyList.size());
   
   
 }

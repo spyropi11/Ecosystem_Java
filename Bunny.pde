@@ -26,7 +26,7 @@ class Bunny extends Animal{
         grassList.remove(i);
         
         this.healthPoints++;
-        println(this.healthPoints);
+        println("health points: " + this.healthPoints);
         
         
       }
