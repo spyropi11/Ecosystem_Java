@@ -30,13 +30,13 @@ void draw() {
   for (int i = 0; i < bunnyList.size(); i++){
     
     bunnyList.get(i).randomWalk();
-    bunnyList.get(i).checkForGrass(grassList);
+    bunnyList.get(i).checkForGrass(grassList, bunnyList);
     bunnyList.get(i).show();
     bunnyList.get(i).updateHealthLeft();
     //println("i is: " + i);
     if (bunnyList.get(i).checkIfDead(bunnyList,i)){
       i = -1;
-      //println("dead");
+       println("dead");
     }
     //println("list size: " + bunnyList.size());
   

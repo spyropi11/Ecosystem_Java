@@ -15,7 +15,7 @@ class Grass{
       
     fill(255, 0, 0);
     noStroke();
-    rect(getXCoord(),getYCoord(),15,15);
+    rect(getXCoord(),getYCoord(),5,5);
     
   }
   

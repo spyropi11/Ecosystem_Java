@@ -3,16 +3,17 @@ class Bunny extends Animal{
 
   void show(){
       
-    fill(135);
+    fill(84, 45, 19);
     noStroke();
-    ellipse(getXCoord(),getYCoord(),15,15);
+    ellipse(getXCoord(),getYCoord(),5,5);
     
   }
   
-  void checkForGrass(ArrayList<Grass> grassList){
-    //Future issue --> this allows for a bunny to eat grass in chain reaction fashion, if it moves to one piece of grass it 
-    //has now changed its coordinates, so that the next time it checks for grass if it has moved closer to another piece
-    //it can then eat that pass, this domino effect will continue, I dont yet know if this is a problem yet
+  void checkForGrass(ArrayList<Grass> grassList, ArrayList<Bunny> bunnyList){
+    /*Future issue --> this allows for a bunny to eat grass in chain reaction fashion, if it moves to one piece of grass it 
+    has now changed its coordinates, so that the next time it checks for grass if it has moved closer to another piece
+    it can then eat that pass, this domino effect will continue, I dont yet know if this will be a problem, but so far
+    it is not*/
     for(int i = 0; i < grassList.size(); i++){
       
       int differenceBetweenXCoords = (grassList.get(i).getXCoord() - this.getXCoord());
@@ -26,11 +27,21 @@ class Bunny extends Animal{
         grassList.remove(i);
         
         this.healthPoints = this.healthPoints + 30;
+        this.reproduce(bunnyList);
         //println("health points: " + this.healthPoints);
         
         
       }
       
+      
+    }
+  
+  }
+  
+  void reproduce(ArrayList<Bunny> bunnyList){
+  
+    for(int i = 0; i < 3; i++){
+      bunnyList.add(new Bunny());
       
     }
   

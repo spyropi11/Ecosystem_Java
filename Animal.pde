@@ -61,6 +61,7 @@ class Animal {
   }
   
   
+  
   //Getters and Setters
   
   void setXCoord(int xCoord){
