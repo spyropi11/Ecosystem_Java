@@ -18,15 +18,15 @@ class Bunny extends Animal{
       int differenceBetweenXCoords = (grassList.get(i).getXCoord() - this.getXCoord());
       int differenceBetweenYCoords = (grassList.get(i).getYCoord() - this.getYCoord());
       
-      if (Math.abs(differenceBetweenXCoords) <= 30 && Math.abs(differenceBetweenYCoords) <= 30){
+      if (Math.abs(differenceBetweenXCoords) <= 50 && Math.abs(differenceBetweenYCoords) <= 50){
         
         this.setXCoord(grassList.get(i).getXCoord());
         this.setYCoord(grassList.get(i).getYCoord());
         
         grassList.remove(i);
         
-        this.healthPoints++;
-        println("health points: " + this.healthPoints);
+        this.healthPoints = this.healthPoints + 30;
+        //println("health points: " + this.healthPoints);
         
         
       }

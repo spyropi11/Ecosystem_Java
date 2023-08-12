@@ -1,14 +1,14 @@
 
 Random rng = new Random();
 
-int initialNumberOfBunnies = 10;
+int initialNumberOfBunnies = 20;
 int initialNumberOfWolves = 10;
 
 ArrayList<Bunny> bunnyList = new ArrayList<>();
 ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
-  frameRate(1);
+  frameRate(10);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
@@ -16,8 +16,6 @@ void setup() {
 }
 
 void draw() {
-  
-  int currentFrameBunnyListSize = bunnyList.size();
   
   generateGrass();
   
@@ -29,22 +27,22 @@ void draw() {
     
   }
   
-  //Solution to problem: the for loop uses the bunnyList's size, but since it is constantly changing as bunnies
-  //die, the for loop's condition "i < bunnyList.size()" is changed every time the for loop re loops. A solution to this
-  //Problem is to use a pre set size for the list at the beginning of the frame that remains constant throughout the loop
-  //
-  
-  for (int i = 0; i < currentFrameBunnyListSize; i++){
+  for (int i = 0; i < bunnyList.size(); i++){
     
     bunnyList.get(i).randomWalk();
     bunnyList.get(i).checkForGrass(grassList);
     bunnyList.get(i).show();
     bunnyList.get(i).updateHealthLeft();
-    bunnyList.get(i).checkIfDead(bunnyList,i);
+    //println("i is: " + i);
+    if (bunnyList.get(i).checkIfDead(bunnyList,i)){
+      i = -1;
+      //println("dead");
+    }
+    //println("list size: " + bunnyList.size());
   
   }
   
-  println("list size: " + bunnyList.size());
+  //println("-------------------------");
   
   
 }
@@ -70,7 +68,7 @@ void generateGrass(){
   
   
   //This will make it so that each frame there is a 50% chance of grass spawning
-  if(randomSpawnChance <= 1){
+  if(randomSpawnChance <= 10){
     
     
     while (grassCanSpawn == false){
