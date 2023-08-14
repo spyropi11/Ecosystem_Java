@@ -1,4 +1,4 @@
-ChildApplet child;
+PlotWindow plotWindow;
 
 Random rng = new Random();
 
@@ -10,7 +10,7 @@ ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
   
-  child = new ChildApplet();
+  plotWindow = new PlotWindow();
   frameRate(10);
   size(1440, 800);
   fillBunnyList(bunnyList);
@@ -102,11 +102,14 @@ void generateGrass(){
 }
 
 //This class is not in it's own file, so that it can have direct access to all of the 
-//parameters that the main window hasxxx
-class ChildApplet extends PApplet {
+//parameters that the main window has
+class PlotWindow extends PApplet {
+  
+  int currentX = 300;
+  int currentY = 200;
 
 
-  public ChildApplet() {
+  public PlotWindow() {
     super();
     PApplet.runSketch(new String[]{this.getClass().getName()}, this);
   }
@@ -126,8 +129,29 @@ class ChildApplet extends PApplet {
     //the value for the radius will be equal to the size of the litst of bunnies multiplied by some decimal 
     //to represent the growth at the moment
     
-    ellipse(200,200,(bunnyList.size()*0.5),(grassList.size()*0.5));
+    //ellipse(200,200,(bunnyList.size()*0.5),(grassList.size()*0.5));
+    
+    update();
+    plot();
+    
+    
     
   }
+  
+  void plot(){
+  
+    //fill(0, 0, 255);
+    //noStroke();
+    ellipse(currentX,currentY,10,10);
+  
+  }
+  
+  void update(){
+  
+    currentX = currentX - 1;
+  
+  }
+  
+  
 
 }
