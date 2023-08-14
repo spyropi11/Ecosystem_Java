@@ -15,6 +15,13 @@ class Animal {
   
   }
   
+  Animal(int xCoord, int yCoord){
+    
+    setXCoord(xCoord);
+    setYCoord(yCoord);
+  
+  }
+  
   void randomWalk(){
     
     boolean canMove = false;

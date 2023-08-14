@@ -1,6 +1,17 @@
 
 class Bunny extends Animal{
 
+  Bunny(){
+    super();
+    
+  
+  }
+  
+  Bunny(int xCoord, int yCoord){
+    super(xCoord, yCoord);
+  
+  }
+  
   void show(){
       
     fill(84, 45, 19);
@@ -41,7 +52,7 @@ class Bunny extends Animal{
   void reproduce(ArrayList<Bunny> bunnyList){
   
     for(int i = 0; i < 3; i++){
-      bunnyList.add(new Bunny());
+      bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
       
     }
   
