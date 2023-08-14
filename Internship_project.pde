@@ -1,3 +1,4 @@
+ChildApplet child;
 
 Random rng = new Random();
 
@@ -8,7 +9,9 @@ ArrayList<Bunny> bunnyList = new ArrayList<>();
 ArrayList<Grass> grassList = new ArrayList<>();
 
 void setup() {
-  frameRate(10);
+  
+  child = new ChildApplet();
+  frameRate(1);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
@@ -94,9 +97,38 @@ void generateGrass(){
       }
       
     }
+  }  
+
+}
+
+//This class is not in it's own file, so that it can have direct access to all of the 
+//parameters that the main window has
+class ChildApplet extends PApplet {
+
+    //JFrame frame;
+
+  public ChildApplet() {
+    super();
+    PApplet.runSketch(new String[]{this.getClass().getName()}, this);
   }
-  
-  
-  
+
+  public void settings() {
+    size(400, 400);
+    smooth();
+  }
+  public void setup() { 
+    windowTitle("Graph Window");
+    
+  }
+
+  public void draw() {
+    background(150);
+    
+    //the value for the radius will be equal to the size of the litst of bunnies multiplied by some decimal 
+    //to represent the growth at the moment
+    
+    circle(200,200,(10*0.1));
+    
+  }
 
 }
