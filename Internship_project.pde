@@ -38,8 +38,11 @@ void draw() {
     bunnyList.get(i).updateHealthLeft();
     //println("i is: " + i);
     if (bunnyList.get(i).checkIfDead(bunnyList,i)){
+      
+      //i is reset to -1 because if it were set to 0, the i++ in the if statement above would 
+      //add 1 to 0 and the loop would begin checking i as 1 instead, this way it checks 0 first
       i = -1;
-       println("dead");
+      println("dead");
     }
     //println("list size: " + bunnyList.size());
   
@@ -105,9 +108,11 @@ void generateGrass(){
 //parameters that the main window has
 class PlotWindow extends PApplet {
   
-  int currentX = 300;
-  int currentY = 200;
-
+  int[] framesDisplayed = new int[40];
+  int[] numberOfBunniesValuesDisplayed = new int[40];
+  int[] numberOfWolvesValuesDisplayed = new int[40];
+  
+  int currentFrame = 1;
 
   public PlotWindow() {
     super();
@@ -142,13 +147,33 @@ class PlotWindow extends PApplet {
   
     //fill(0, 0, 255);
     //noStroke();
-    ellipse(currentX,currentY,10,10);
+    
+    for (int i = 0; i < 40; i++){
+      
+      circle(i*10,400 - numberOfBunniesValuesDisplayed[i],10);
+      
+    }
+    
   
   }
   
   void update(){
-  
-    currentX = currentX - 1;
+    //the size of the lists are 40, however in order to avoid a index out of bounds exception
+    //since I am reaching for i + 1 I set the max i value to 39
+    for(int i = 0; i < 39; i++){
+      //this shifts the graph to the "left", as the old values are shifted back 1 index to give space to 
+      //the new value at index 40, giving the illusion that the graph is updating
+      framesDisplayed[i] = framesDisplayed[i + 1];
+      numberOfBunniesValuesDisplayed[i] = numberOfBunniesValuesDisplayed[i + 1];
+      //numberOfWolvesValuesDisplayed[i] = numberOfWolvesValuesDisplayed[i + 1];
+      
+      framesDisplayed[39] = currentFrame;
+      numberOfBunniesValuesDisplayed[39] = bunnyList.size();
+      //numberOfWolvesValuesDisplayed[40] = wolfList.size();
+    }
+    
+    currentFrame++;
+    println(currentFrame);
   
   }
   
