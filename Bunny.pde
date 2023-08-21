@@ -37,7 +37,7 @@ class Bunny extends Animal{
         
         grassList.remove(i);
         
-        this.healthPoints = this.healthPoints + 30;
+        this.hungerPoints = this.hungerPoints + 30;
         this.reproduce(bunnyList);
         //println("health points: " + this.healthPoints);
         

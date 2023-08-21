@@ -4,7 +4,7 @@ Data dataWriter = new Data();
 
 int currentFrame = 1;
 
-int initialNumberOfBunnies = 20;
+int initialNumberOfBunnies = 2;
 int initialNumberOfWolves = 10;
 
 ArrayList<Bunny> bunnyList = new ArrayList<>();
@@ -13,7 +13,7 @@ ArrayList<Grass> grassList = new ArrayList<>();
 void setup() {
   
   dataWriter.clearTextFile();
-  frameRate(30);
+  frameRate(50);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
@@ -37,7 +37,7 @@ void draw() {
     bunnyList.get(i).randomWalk();
     bunnyList.get(i).checkForGrass(grassList, bunnyList);
     bunnyList.get(i).show();
-    bunnyList.get(i).updateHealthLeft();
+    bunnyList.get(i).updateLifePointsLeft();
     //println("i is: " + i);
     if (bunnyList.get(i).checkIfDead(bunnyList,i)){
       
