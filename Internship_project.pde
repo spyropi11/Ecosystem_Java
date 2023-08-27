@@ -4,7 +4,7 @@ Data dataWriter = new Data();
 
 int currentFrame = 1;
 
-int initialNumberOfBunnies = 2;
+int initialNumberOfBunnies = 10;
 int initialNumberOfWolves = 10;
 
 ArrayList<Bunny> bunnyList = new ArrayList<>();
@@ -13,7 +13,7 @@ ArrayList<Grass> grassList = new ArrayList<>();
 void setup() {
   
   dataWriter.clearTextFile();
-  frameRate(50);
+  frameRate(3);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));

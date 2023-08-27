@@ -7,16 +7,42 @@ class Animal {
   int healthPoints = 100;
   int hungerPoints = 100;
   
+  boolean isMale = false;
+  boolean isFemale = false;
+  
   Random rng = new Random();
   
   Animal(){
     
+    //this randomly a sex to the animal
+    if (rng.nextInt(0,2) == 0){
+    
+      isFemale = true;
+    
+    }else{
+    
+      isMale = true;
+    
+    }
+      
+      
     setXCoord((int)random(1,1439));
     setYCoord((int)random(1,799));
   
   }
   
   Animal(int xCoord, int yCoord){
+    
+    //this randomly a sex to the animal
+    if (rng.nextInt(0,2) == 0){
+    
+      isFemale = true;
+    
+    }else{
+    
+      isMale = true;
+    
+    }
     
     setXCoord(xCoord);
     setYCoord(yCoord);

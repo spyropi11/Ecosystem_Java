@@ -3,6 +3,8 @@ class Bunny extends Animal{
 
   Bunny(){
     super();
+    println("is male: " + this.isMale);
+    println("is female: " + this.isFemale);
     
   
   }
@@ -14,7 +16,16 @@ class Bunny extends Animal{
   
   void show(){
       
-    fill(84, 45, 19);
+    if(isFemale == true){
+      
+      fill(255, 16, 240);
+      
+    }else{
+    
+      fill(0, 0, 255);
+      
+    }
+    
     noStroke();
     ellipse(getXCoord(),getYCoord(),5,5);
     
@@ -38,7 +49,7 @@ class Bunny extends Animal{
         grassList.remove(i);
         
         this.hungerPoints = this.hungerPoints + 30;
-        this.reproduce(bunnyList);
+        this.checkIfCanReproduce(bunnyList);
         //println("health points: " + this.healthPoints);
         
         
@@ -49,8 +60,10 @@ class Bunny extends Animal{
   
   }
   
-  void reproduce(ArrayList<Bunny> bunnyList){
+  void checkIfCanReproduce(ArrayList<Bunny> bunnyList){
   
+    
+    
     for(int i = 0; i < 3; i++){
       bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
       
