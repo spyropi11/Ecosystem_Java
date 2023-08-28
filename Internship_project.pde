@@ -4,7 +4,7 @@ Data dataWriter = new Data();
 
 int currentFrame = 1;
 
-int initialNumberOfBunnies = 10;
+int initialNumberOfBunnies = 20;
 int initialNumberOfWolves = 10;
 
 ArrayList<Bunny> bunnyList = new ArrayList<>();
@@ -35,6 +35,7 @@ void draw() {
   for (int i = 0; i < bunnyList.size(); i++){
     
     bunnyList.get(i).randomWalk();
+    
     bunnyList.get(i).checkIfCanReproduce(bunnyList);
     bunnyList.get(i).checkForGrass(grassList, bunnyList);
     bunnyList.get(i).show();

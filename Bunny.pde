@@ -61,13 +61,21 @@ class Bunny extends Animal{
   void checkIfCanReproduce(ArrayList<Bunny> bunnyList){
   
     
+    
     if(this.isFemale == true){
+      
       for(int i = 0; i < bunnyList.size(); i++){
         
         int differenceBetweenXCoords = (bunnyList.get(i).getXCoord() - this.getXCoord());
+        //println("difference x" + differenceBetweenXCoords);
         int differenceBetweenYCoords = (bunnyList.get(i).getYCoord() - this.getYCoord());
-      
-        if(bunnyList.get(i) != this 
+        //println("difference y" + differenceBetweenYCoords);
+        
+        //println(bunnyList.get(i).equals(this));
+        
+        //bunnyList.get(i) != this
+        
+        if( !bunnyList.get(i).equals(this)
           && Math.abs(differenceBetweenXCoords) <= 50 
           && Math.abs(differenceBetweenYCoords) <= 50 
           && bunnyList.get(i).isMale == true){
@@ -75,7 +83,7 @@ class Bunny extends Animal{
           //for now the bunny will give birth to 3 offspring, when genes are introduced this number will vary
           for(int j = 0; j < 3; j++){
           
-            bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
+            //bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
         
           }
         
