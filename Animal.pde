@@ -6,6 +6,8 @@ class Animal {
   
   int healthPoints = 100;
   int hungerPoints = 100;
+  int maturityPoints = 0;
+  int birthAbilityPoints = 0;
   
   boolean isMale = false;
   boolean isFemale = false;
@@ -74,10 +76,13 @@ class Animal {
     }    
   }
   
-  void updateLifePointsLeft(){
+  void updatePoints(){
     
     this.healthPoints = this.healthPoints - 1;
-    this.hungerPoints = this.hungerPoints - 2;
+    this.hungerPoints = this.hungerPoints - 3;
+    this.maturityPoints++;
+    this.birthAbilityPoints++;
+    //this.
   
   }
   
