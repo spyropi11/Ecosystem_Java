@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
+framesList = []
+numberOfBunniesList = []
+numberOfWolvesList = []
 
-coordListX = []
-coordListY = []
+fig, ax = plt.subplots()
 
 with open('simData.txt','r') as file:
   
@@ -13,12 +15,19 @@ with open('simData.txt','r') as file:
             
             
             if (index == 0):
-                coordListX.append(int(word))
+                framesList.append(int(word))
 
             if (index == 1):
-                coordListY.append(int(word))
+                numberOfBunniesList.append(int(word))
+
+            if (index == 2):
+                numberOfWolvesList.append(int(word))
 
             index = index + 1
             
-plt.plot(coordListX,coordListY)
+plt.plot(numberOfBunniesList,'-b', label='Bunnies')
+plt.plot(numberOfWolvesList, '-r', label='Wolves')
+
+leg = ax.legend();
+
 plt.show()

@@ -11,13 +11,13 @@ class Data {
     
   }
   
-  void write(int currentFrame, int amountOfBunnies){
+  void write(int currentFrame, int amountOfBunnies, int amountOfWolves){
     
     try {
       
       FileWriter fw = new FileWriter("/Users/Spyros/Documents/Processing/Internship_project/simData.txt", true);
       pr = new PrintWriter(fw);
-      pr.println(currentFrame + " " + amountOfBunnies);
+      pr.println(currentFrame + " " + amountOfBunnies + " " + amountOfWolves);
       
       pr.close();
       

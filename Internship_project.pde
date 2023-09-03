@@ -40,7 +40,7 @@ void draw() {
   
   
   
-  dataWriter.write(currentFrame, bunnyList.size());
+  dataWriter.write(currentFrame, bunnyList.size(), wolfList.size());
   
   currentFrame++;
   //println(currentFrame);
