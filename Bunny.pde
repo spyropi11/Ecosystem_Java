@@ -13,8 +13,8 @@ class Bunny extends Animal{
   
   }
   
-  void show(){
-      
+  void show(){  
+    
     if(isFemale == true){
       
       fill(255, 16, 240);
@@ -102,6 +102,7 @@ class Bunny extends Animal{
         for(int j = 0; j < 3; j++){
             
             bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
+            println("born " + bunnyList.size());
         
         }
       

@@ -6,7 +6,7 @@ Data dataWriter = new Data();
 int currentFrame = 1;
 
 int initialNumberOfBunnies = 35;
-int initialNumberOfWolves = 10;
+int initialNumberOfWolves = 25;
 
 ArrayList<Bunny> bunnyList = new ArrayList<>();
 ArrayList<Grass> grassList = new ArrayList<>();
@@ -14,7 +14,7 @@ ArrayList<Grass> grassList = new ArrayList<>();
 void setup() {
   
   dataWriter.clearTextFile();
-  frameRate(4);
+  frameRate(7);
   size(1440, 800);
   fillBunnyList(bunnyList);
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
@@ -39,7 +39,6 @@ void draw() {
     
     bunnyList.get(i).checkIfCanReproduce(bunnyList);
     bunnyList.get(i).checkForGrass(grassList, bunnyList);
-    bunnyList.get(i).show();
     bunnyList.get(i).updatePoints();
     //println("i is: " + i);
     if (bunnyList.get(i).checkIfDead(bunnyList,i)){
@@ -53,10 +52,15 @@ void draw() {
   
   }
   
+  showBunnies(bunnyList);
+  //showWolves(wolvesList);
+  
+  
+  
   dataWriter.write(currentFrame, bunnyList.size());
   
   currentFrame++;
-  
+  //println(currentFrame);
   //println("-------------------------");
   
   
@@ -71,7 +75,17 @@ void fillBunnyList(ArrayList<Bunny> bunnyList){
     
   }
   
-  println(bunnyList.size());
+  //println(bunnyList.size());
+}
+
+void showBunnies(ArrayList<Bunny> bunnyList){
+
+  for (int i = 0; i < bunnyList.size(); i++){
+  
+    bunnyList.get(i).show();
+  
+  }
+
 }
 
 void generateGrass(){

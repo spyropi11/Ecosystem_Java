@@ -16,7 +16,7 @@ class Animal {
   
   Animal(){
     
-    //this randomly a sex to the animal
+    //this randomly assigns a sex to the animal
     if (rng.nextInt(0,2) == 0){
     
       isFemale = true;
@@ -92,7 +92,7 @@ class Animal {
     boolean isDead = false;
     
     if (bunnyList.get(index).healthPoints <= 0 || bunnyList.get(index).hungerPoints <= 0){
-    
+
       bunnyList.remove(index);
       isDead = true;
       
