@@ -5,8 +5,8 @@ Data dataWriter = new Data();
 
 int currentFrame = 1;
 
-int initialNumberOfBunnies = 35;
-int initialNumberOfWolves = 25;
+int initialNumberOfBunnies = 40;
+int initialNumberOfWolves = 10;
 
 ArrayList<Wolf> wolfList = new ArrayList<>();
 ArrayList<Bunny> bunnyList = new ArrayList<>();
@@ -15,7 +15,7 @@ ArrayList<Grass> grassList = new ArrayList<>();
 void setup() {
   
   dataWriter.clearTextFile();
-  frameRate(4);
+  frameRate(40);
   size(1440, 800);
   fillWolfList(wolfList);
   fillBunnyList(bunnyList);
@@ -109,7 +109,7 @@ void updateBunnyStatus(){
     bunnyList.get(i).randomWalk();
     
     bunnyList.get(i).checkIfCanReproduce(bunnyList);
-    bunnyList.get(i).checkForGrass(grassList, bunnyList);
+    bunnyList.get(i).checkForGrass(grassList);
     bunnyList.get(i).updatePoints();
     //println("i is: " + i);
     if (bunnyList.get(i).checkIfDead(bunnyList,i)){
@@ -132,7 +132,7 @@ void updateWolfStatus(){
     wolfList.get(i).randomWalk();
     
     wolfList.get(i).checkIfCanReproduce(wolfList);
-    //wolfList.get(i).checkForGrass(grassList, bunnyList);
+    wolfList.get(i).checkForBunnies(bunnyList);
     wolfList.get(i).updatePoints();
     //println("i is: " + i);
     if (wolfList.get(i).checkIfDead(wolfList,i)){

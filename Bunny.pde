@@ -22,7 +22,7 @@ class Bunny extends Animal{
     
   }
   
-  void checkForGrass(ArrayList<Grass> grassList, ArrayList<Bunny> bunnyList){
+  void checkForGrass(ArrayList<Grass> grassList){
     /*Future issue --> this allows for a bunny to eat grass in chain reaction fashion, if it moves to one piece of grass it 
     has now changed its coordinates, so that the next time it checks for grass if it has moved closer to another piece
     it can then eat that pass, this domino effect will continue, I dont yet know if this will be a problem, but so far
@@ -40,8 +40,7 @@ class Bunny extends Animal{
         grassList.remove(i);
         
         this.hungerPoints = this.hungerPoints + 30;
-        this.checkIfCanReproduce(bunnyList);
-        //println("health points: " + this.healthPoints);
+
         
         
       }

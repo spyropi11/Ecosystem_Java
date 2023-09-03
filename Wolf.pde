@@ -92,5 +92,32 @@ class Wolf extends Animal{
   
   }
   
+  void checkForBunnies(ArrayList<Bunny> bunnyList){
+
+    for(int i = 0; i < bunnyList.size(); i++){
+      
+      int differenceBetweenXCoords = (bunnyList.get(i).getXCoord() - this.getXCoord());
+      int differenceBetweenYCoords = (bunnyList.get(i).getYCoord() - this.getYCoord());
+      
+      if (Math.abs(differenceBetweenXCoords) <= 20 && Math.abs(differenceBetweenYCoords) <= 20){
+        
+        this.setXCoord(bunnyList.get(i).getXCoord());
+        this.setYCoord(bunnyList.get(i).getYCoord());
+        
+        bunnyList.remove(i);
+        
+        this.hungerPoints = this.hungerPoints + 30;
+        
+        break;
+        
+        
+        
+      }
+      
+      
+    }
+  
+  }
+  
 
 }
