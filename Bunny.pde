@@ -15,18 +15,10 @@ class Bunny extends Animal{
   
   void show(){  
     
-    if(isFemale == true){
-      
-      fill(255, 16, 240);
-      
-    }else{
-    
-      fill(0, 0, 255);
-      
-    }
+    fill(127, 0, 255);
     
     noStroke();
-    ellipse(getXCoord(),getYCoord(),5,5);
+    ellipse(getXCoord(),getYCoord(),3,3);
     
   }
   
@@ -57,6 +49,20 @@ class Bunny extends Animal{
       
     }
   
+  }
+  
+  boolean checkIfDead(ArrayList<Bunny> bunnyList, int index){
+  
+    boolean isDead = false;
+    
+    if (bunnyList.get(index).healthPoints <= 0 || bunnyList.get(index).hungerPoints <= 0){
+
+      bunnyList.remove(index);
+      isDead = true;
+      
+    }
+  
+    return isDead;
   }
   
   void checkIfCanReproduce(ArrayList<Bunny> bunnyList){
@@ -102,7 +108,7 @@ class Bunny extends Animal{
         for(int j = 0; j < 3; j++){
             
             bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
-            println("born " + bunnyList.size());
+            //println("born " + bunnyList.size());
         
         }
       

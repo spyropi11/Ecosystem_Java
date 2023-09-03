@@ -87,22 +87,6 @@ class Animal {
   }
   
   
-  boolean checkIfDead(ArrayList<Bunny> bunnyList, int index){
-  
-    boolean isDead = false;
-    
-    if (bunnyList.get(index).healthPoints <= 0 || bunnyList.get(index).hungerPoints <= 0){
-
-      bunnyList.remove(index);
-      isDead = true;
-      
-    }
-  
-    return isDead;
-  }
-  
-  
-  
   //Getters and Setters
   
   void setXCoord(int xCoord){
