@@ -20,8 +20,13 @@ void setup() {
   fillWolfList(wolfList);
   fillBunnyList(bunnyList);
   
+  for (int i = 0; i < 100; i++){
   
-  grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
+    grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
+  
+  }
+  
+  
   
 }
 
@@ -29,7 +34,10 @@ void draw() {
   
   background(0,256,120);
   
-  generateGrass();
+  for (int i = 0; i < 5; i++){
+    generateGrass();
+    
+  }
 
   showGrass(grassList);
   
