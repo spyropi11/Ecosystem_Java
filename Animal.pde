@@ -12,6 +12,7 @@ class Animal {
   boolean isMale = false;
   boolean isFemale = false;
   
+  
   Random rng = new Random();
   
   Animal(){
@@ -27,9 +28,7 @@ class Animal {
     
     }
       
-      
-    setXCoord((int)random(1,1439));
-    setYCoord((int)random(1,799));
+
   
   }
   

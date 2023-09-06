@@ -4,16 +4,20 @@ class Wolf extends Animal{
   Wolf(){
   
     super();
-    this.healthPoints = 200;
-    this.hungerPoints = 200;
+    this.healthPoints = 150;
+    this.hungerPoints = 100;
+    
+    //setXCoord((int)random(1,1439));
+    setXCoord((int)random(720,1439));
+    setYCoord((int)random(1,799));
   
   }
   
   Wolf(int xCoord, int yCoord){
   
     super(xCoord, yCoord);
-    this.healthPoints = 300;
-    this.hungerPoints = 300;
+    this.healthPoints = 150;
+    this.hungerPoints = 100;
 
   
   }
@@ -59,12 +63,12 @@ class Wolf extends Animal{
         //bunnyList.get(i) != this
         
         if( !wolfList.get(i).equals(this)
-          && this.birthAbilityPoints >= 20
-          && wolfList.get(i).birthAbilityPoints >= 20
-          && this.maturityPoints >= 20
-          && wolfList.get(i).maturityPoints >= 20
-          && Math.abs(differenceBetweenXCoords) <= 50 
-          && Math.abs(differenceBetweenYCoords) <= 50 
+          && this.birthAbilityPoints >= 5
+          && wolfList.get(i).birthAbilityPoints >= 5
+          && this.maturityPoints >= 34
+          && wolfList.get(i).maturityPoints >= 34
+          && Math.abs(differenceBetweenXCoords) <= 60 
+          && Math.abs(differenceBetweenYCoords) <= 60 
           && wolfList.get(i).isMale == true){
             
           canReproduce = true;

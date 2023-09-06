@@ -5,8 +5,8 @@ Data dataWriter = new Data();
 
 int currentFrame = 1;
 
-int initialNumberOfBunnies = 200;
-int initialNumberOfWolves = 0;
+int initialNumberOfBunnies = 150;
+int initialNumberOfWolves = 100;
 
 ArrayList<Wolf> wolfList = new ArrayList<>();
 ArrayList<Bunny> bunnyList = new ArrayList<>();
@@ -114,13 +114,13 @@ void showGrass(ArrayList<Grass> grassList){
 
 void updateBunnyStatus(){
   
-    for (int i = 0; i < bunnyList.size(); i++){
+  for (int i = 0; i < bunnyList.size(); i++){
     
-      bunnyList.get(i).randomWalk();
-      
-      bunnyList.get(i).checkIfCanReproduce(bunnyList);
-      bunnyList.get(i).checkForGrass(grassList);
-      bunnyList.get(i).updatePoints();
+    bunnyList.get(i).randomWalk();
+    
+    bunnyList.get(i).checkIfCanReproduce(bunnyList);
+    bunnyList.get(i).checkForGrass(grassList);
+    bunnyList.get(i).updatePoints();
   
   }
   
@@ -152,16 +152,25 @@ void updateWolfStatus(){
     wolfList.get(i).checkIfCanReproduce(wolfList);
     wolfList.get(i).checkForBunnies(bunnyList);
     wolfList.get(i).updatePoints();
-    //println("i is: " + i);
-    if (wolfList.get(i).checkIfDead(wolfList,i)){
-      
-      //i is reset to -1 because if it were set to 0, the i++ in the if statement above would 
-      //add 1 to 0 and the loop would begin checking i as 1 instead, this way it checks 0 first
-      i = -1;
-      //println("dead");
-    }
-    //println("list size: " + bunnyList.size());
+
   
+  }
+  
+  for (int j = 0; j < wolfList.size(); j++){
+        
+    if (wolfList.get(j).checkIfDead(wolfList,j)){
+        //println("x:" + bunnyList.get(i).getXCoord() + " " + bunnyList.get(i).getXCoord());
+        
+        //i is reset to -1 because if it were set to 0, the i++ in the if statement above would 
+        //add 1 to 0 and the loop would begin checking i as 1 instead, this way it checks 0 first
+        //wolfList.remove(j);
+        
+        j = -1;
+        
+    }
+        
+      
+        
   }
 
 }

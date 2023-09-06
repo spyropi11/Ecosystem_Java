@@ -5,6 +5,10 @@ class Bunny extends Animal{
     super();
     this.healthPoints = 150;
     this.hungerPoints = 100;
+    
+    //setXCoord((int)random(1,1439));
+    setXCoord((int)random(1,1439));
+    setYCoord((int)random(1,799));
   
   }
   
