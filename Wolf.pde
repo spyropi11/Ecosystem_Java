@@ -4,12 +4,16 @@ class Wolf extends Animal{
   Wolf(){
   
     super();
+    this.healthPoints = 200;
+    this.hungerPoints = 200;
   
   }
   
   Wolf(int xCoord, int yCoord){
   
     super(xCoord, yCoord);
+    this.healthPoints = 300;
+    this.hungerPoints = 300;
 
   
   }

@@ -5,8 +5,8 @@ Data dataWriter = new Data();
 
 int currentFrame = 1;
 
-int initialNumberOfBunnies = 40;
-int initialNumberOfWolves = 10;
+int initialNumberOfBunnies = 200;
+int initialNumberOfWolves = 0;
 
 ArrayList<Wolf> wolfList = new ArrayList<>();
 ArrayList<Bunny> bunnyList = new ArrayList<>();
@@ -15,10 +15,12 @@ ArrayList<Grass> grassList = new ArrayList<>();
 void setup() {
   
   dataWriter.clearTextFile();
-  frameRate(40);
+  frameRate(5);
   size(1440, 800);
   fillWolfList(wolfList);
   fillBunnyList(bunnyList);
+  
+  
   grassList.add(new Grass(rng.nextInt(1, 1439), rng.nextInt(1,799)));
   
 }
@@ -43,7 +45,7 @@ void draw() {
   dataWriter.write(currentFrame, bunnyList.size(), wolfList.size());
   
   currentFrame++;
-  //println(currentFrame);
+  //println("frame: " + currentFrame);
   //println("-------------------------");
   
   
@@ -63,7 +65,7 @@ void fillBunnyList(ArrayList<Bunny> bunnyList){
 
 void fillWolfList(ArrayList<Wolf> wolfList){
 
-  for(int i = 0; i < initialNumberOfBunnies; i++){
+  for(int i = 0; i < initialNumberOfWolves; i++){
     
       wolfList.add(new Wolf());
     
@@ -103,24 +105,32 @@ void showGrass(ArrayList<Grass> grassList){
 }
 
 void updateBunnyStatus(){
-
+  
     for (int i = 0; i < bunnyList.size(); i++){
     
-    bunnyList.get(i).randomWalk();
-    
-    bunnyList.get(i).checkIfCanReproduce(bunnyList);
-    bunnyList.get(i).checkForGrass(grassList);
-    bunnyList.get(i).updatePoints();
-    //println("i is: " + i);
-    if (bunnyList.get(i).checkIfDead(bunnyList,i)){
+      bunnyList.get(i).randomWalk();
       
-      //i is reset to -1 because if it were set to 0, the i++ in the if statement above would 
-      //add 1 to 0 and the loop would begin checking i as 1 instead, this way it checks 0 first
-      i = -1;
-      //println("dead");
-    }
-    //println("list size: " + bunnyList.size());
+      bunnyList.get(i).checkIfCanReproduce(bunnyList);
+      bunnyList.get(i).checkForGrass(grassList);
+      bunnyList.get(i).updatePoints();
   
+  }
+  
+  for (int j = 0; j < bunnyList.size(); j++){
+        
+    if (bunnyList.get(j).checkIfDead(bunnyList,j)){
+        //println("x:" + bunnyList.get(i).getXCoord() + " " + bunnyList.get(i).getXCoord());
+        
+        //i is reset to -1 because if it were set to 0, the i++ in the if statement above would 
+        //add 1 to 0 and the loop would begin checking i as 1 instead, this way it checks 0 first
+        bunnyList.remove(j);
+        
+        j = -1;
+        
+    }
+        
+      
+        
   }
   
 }

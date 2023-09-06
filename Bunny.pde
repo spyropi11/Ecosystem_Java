@@ -3,13 +3,15 @@ class Bunny extends Animal{
 
   Bunny(){
     super();
-    
+    this.healthPoints = 100;
+    this.hungerPoints = 100;
   
   }
   
   Bunny(int xCoord, int yCoord){
     super(xCoord, yCoord);
-    
+    this.healthPoints = 100;
+    this.hungerPoints = 100;
   
   }
   
@@ -40,8 +42,9 @@ class Bunny extends Animal{
         grassList.remove(i);
         
         this.hungerPoints = this.hungerPoints + 30;
-
         
+
+        break;
         
       }
       
@@ -56,7 +59,9 @@ class Bunny extends Animal{
     
     if (bunnyList.get(index).healthPoints <= 0 || bunnyList.get(index).hungerPoints <= 0){
 
-      bunnyList.remove(index);
+      //println("dead health: " + bunnyList.get(index).healthPoints);
+      //println("dead hunger: " + bunnyList.get(index).hungerPoints);
+      //bunnyList.remove(index);
       isDead = true;
       
     }
@@ -83,8 +88,8 @@ class Bunny extends Animal{
         
         if( !bunnyList.get(i).equals(this)
           && this.birthAbilityPoints >= 20
-          && bunnyList.get(i).birthAbilityPoints >= 20
-          && this.maturityPoints >= 20
+          && bunnyList.get(i).birthAbilityPoints >= 34
+          && this.maturityPoints >= 34
           && bunnyList.get(i).maturityPoints >= 20
           && Math.abs(differenceBetweenXCoords) <= 50 
           && Math.abs(differenceBetweenYCoords) <= 50 
@@ -104,7 +109,7 @@ class Bunny extends Animal{
         
         this.birthAbilityPoints = 0;
         
-        for(int j = 0; j < 3; j++){
+        for(int j = 0; j < 10; j++){
             
             bunnyList.add(new Bunny(this.getXCoord(),this.getYCoord()));
             //println("born " + bunnyList.size());

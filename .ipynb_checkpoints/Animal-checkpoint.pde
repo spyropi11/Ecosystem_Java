@@ -82,7 +82,7 @@ class Animal {
     this.hungerPoints = this.hungerPoints - 3;
     this.maturityPoints++;
     this.birthAbilityPoints++;
-    
+    //this.
   
   }
   
