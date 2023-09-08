@@ -15,7 +15,7 @@ ArrayList<Grass> grassList = new ArrayList<>();
 void setup() {
   
   dataWriter.clearTextFile();
-  frameRate(5);
+  frameRate(70);
   size(1440, 800);
   fillWolfList(wolfList);
   fillBunnyList(bunnyList);

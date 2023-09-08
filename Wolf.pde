@@ -84,7 +84,7 @@ class Wolf extends Animal{
         
         this.birthAbilityPoints = 0;
         
-        for(int j = 0; j <2; j++){
+        for(int j = 0; j < 2; j++){
             
             wolfList.add(new Wolf(this.getXCoord(),this.getYCoord()));
             //println("born " + bunnyList.size());
